@@ -3,15 +3,14 @@ package com.example.pandabox
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.pandabox.ui.theme.PandaBoxTheme
-import com.example.pandabox.utils.getLocalIpAddress
+import com.example.pandabox.ui.widgets.ClearClipBoardButton
+import com.example.pandabox.ui.widgets.IPArea
 
 
 class MainActivity : ComponentActivity() {
@@ -21,28 +20,14 @@ class MainActivity : ComponentActivity() {
             PandaBoxTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Column() {
+                        IPArea("Android")
+                        ClearClipBoardButton()
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "${getLocalIpAddress()}",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    PandaBoxTheme {
-        Greeting("Android")
     }
 }

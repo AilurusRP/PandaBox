@@ -3,7 +3,7 @@ package com.example.pandabox.utils
 import java.net.NetworkInterface
 import java.util.*
 
-fun getLocalIpAddress(): String? {
+fun getLocalIpAddress(): String {
     try {
         val interfaces: List<NetworkInterface> =
             Collections.list(NetworkInterface.getNetworkInterfaces())
@@ -18,5 +18,5 @@ fun getLocalIpAddress(): String? {
     } catch (e: Exception) {
         e.printStackTrace()
     }
-    return null
+    return "No valid local IP found."
 }
